@@ -59,7 +59,7 @@ class Board
   end
 
   def move_piece(turn_color, start_pos, end_pos)
-    raise 'start position is empty' if empty?(start_pos)
+    raise 'Start position is empty' if empty?(start_pos)
 
     piece = self[start_pos]
     if piece.color != turn_color
@@ -76,7 +76,7 @@ class Board
   # move without performing checks
   def move_piece!(start_pos, end_pos)
     piece = self[start_pos]
-    raise 'piece cannot move like that' unless piece.moves.include?(end_pos)
+    raise 'Piece cannot move like that' unless piece.moves.include?(end_pos)
 
     self[end_pos] = piece
     self[start_pos] = sentinel
@@ -115,7 +115,7 @@ class Board
 
   def find_king(color)
     king_pos = pieces.find { |p| p.color == color && p.is_a?(King) }
-    king_pos || (raise 'king not found?')
+    king_pos || (raise 'King not found?')
   end
 
   def make_starting_grid(fill_board)
